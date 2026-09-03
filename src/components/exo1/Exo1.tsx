@@ -16,12 +16,11 @@ function Exo1() {
             </div>
             <div className="card-body">
                 <p className={classNames({
-                    'fw-bold': true,
                     'text-danger': count < 3,
                     'text-warning': count >= 3 && count < 5,
                     'text-info': count >= 5 && count < 8,
                     'text-success': count >= 8
-                })}>{count}</p>
+                }, 'fw-bold')}>{count}</p>
             </div>
             <div className="card-footer d-flex gap-3">
                 <button onClick={() => increase(-1)} 
