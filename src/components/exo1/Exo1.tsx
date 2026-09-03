@@ -23,24 +23,15 @@ function Exo1() {
                     'text-success': count >= 8
                 })}>{count}</p>
             </div>
-            <div className="card-footer">
+            <div className="card-footer d-flex gap-3">
                 <button onClick={() => increase(-1)} 
-                        className="btn btn-info me-3"
-                        disabled={count <= 0}>-</button>
+                        className="btn btn-secondary"
+                        disabled={count <= 0}><i className="bi bi-dash"></i></button>
                 <button onClick={() => increase(1)} 
-                        className="btn btn-dark"
-                        disabled={count >= 10}>+</button>
+                        className="btn btn-secondary"
+                        disabled={count >= 10}><i className="bi bi-plus"></i></button>
             </div>
         </div>
-        {/* <div></div>
-        <div className="row">
-            <div className="col">
-
-            </div>
-            <div className="col">
-
-            </div>
-        </div> */}
     </>
 }
 

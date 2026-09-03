@@ -21,9 +21,10 @@ function Composant2() {
     }, [])
 
     return <>
-        <ul>
+        <ul className="list-group">
             { persons.map(p => <li key={p.id} className={classNames({
-                'text-danger': p.estDev
+                'text-danger': p.estDev,
+                'list-group-item': true
             })}>
                 {p.nom} {p.prenom}
             </li>) }
