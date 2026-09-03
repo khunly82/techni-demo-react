@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react"
-import './Composant1.css'
+import styles from  './Composant1.module.css'
 
 interface Composant1Props {
     nom: string;
@@ -23,10 +23,11 @@ function Composant1(props: Composant1Props) {
         }
     }
 
+
     return <>
-        <p className={classNames({ red: nom === 'Mike' })}>Hello {nom}</p>
+        <p className={classNames({ [styles.red]: nom === 'Mike' })}>Hello {nom}</p>
         {/* affichage conditionnel */}
-        { nom == props.nom2 && <p>La condition est vraie</p> }
+        { nom === props.nom2 && <p>La condition est vraie</p> }
         { ouiOuNon() }
         <button onClick={changeName}>Changer de nom</button>
     </> 
