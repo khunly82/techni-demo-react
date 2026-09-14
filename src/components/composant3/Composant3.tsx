@@ -31,12 +31,16 @@ import { useActionState } from "react"
 
 function Composant3() {
 
-    const [values, action, isPending] = useActionState(submit, { nom: '', prenom: '' })
+    const [values, action, isPending] = useActionState(
+        submit, { nom: '', prenom: '' }
+    )
 
     async function submit(_: {nom: string, prenom: string}, data: FormData) {
         console.log(Object.fromEntries(data))
         // simulation appel serveur
-        await new Promise((resolve) => setTimeout(() => resolve(42), 5000),)
+        await new Promise(
+            (resolve) => setTimeout(() => resolve(42), 5000)
+        )
         return Object.fromEntries(data) as {nom: string, prenom: string}
     }
 
