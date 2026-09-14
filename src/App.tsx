@@ -2,6 +2,7 @@
 import Composant1 from './components/composant1/Composant1'
 import Composant2 from './components/composant2/Composant2'
 import Exo1 from './components/exo1/Exo1'
+import Exo2 from './components/exo2/Exo2'
 
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
     <Exo1 />
     <hr />
     <Composant2 />
+    <hr />
+    <Exo2 />
   </>  
 }
 
