@@ -1,4 +1,8 @@
-export const products = [
+export interface Product {
+    nom: string, description: string, prix: number, quantite: number
+}
+
+export const products: Product[] = [
     { nom: "Écouteurs sans fil", description: "Écouteurs bluetooth avec réduction de bruit", prix: 129.99, quantite: 0 },
     { nom: "Tasse à café", description: "Tasse en céramique 350ml", prix: 12.50, quantite: 0 },
     { nom: "Clavier mécanique", description: "Clavier gaming rétroéclairé", prix: 89.99, quantite: 0 },
