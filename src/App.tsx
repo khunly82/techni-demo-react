@@ -1,6 +1,7 @@
 // import styles from './App.module.css'
 import Composant1 from './components/composant1/Composant1'
 import Composant2 from './components/composant2/Composant2'
+import Composant3 from './components/composant3/Composant3'
 import Exo1 from './components/exo1/Exo1'
 import Exo2 from './components/exo2/Exo2'
 
@@ -17,6 +18,8 @@ function App() {
     <Composant2 />
     <hr />
     <Exo2 />
+    <hr />
+    <Composant3 />
   </>  
 }
 
