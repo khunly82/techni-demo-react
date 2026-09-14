@@ -20,12 +20,12 @@ function Exo4() {
     }
 
 
-    return <>
-        <input type="number"
+    return <div className="d-flex gap-2">
+        <input className="form-control" type="number"
                defaultValue={nb1?.toString()}
                onChange={e => setNb1(e.target.valueAsNumber)}
         />
-        <select defaultValue={operator}
+        <select className="form-control" defaultValue={operator}
                 onChange={e => setOperator(e.target.value as '+'|'-'|'*'|'/'|'')}>
             <option value=""></option>
             <option value="+">+</option>
@@ -33,12 +33,15 @@ function Exo4() {
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
-        <input type="number"
+        <input className="form-control" type="number"
                defaultValue={nb2?.toString()}
                onChange={e => setNb2(e.target.valueAsNumber)}
         />
-        <span> = {result?.toFixed(10)}</span>
-    </>
+        <span>=</span>
+        <input className="form-control"
+               disabled type="text" 
+               defaultValue={result?.toFixed(2)} />
+    </div>
 }
 
 export default Exo4
