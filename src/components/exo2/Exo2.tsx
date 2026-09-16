@@ -1,22 +1,19 @@
-import { useEffect, useMemo, useState } from "react"
-import { products, type Product } from "../../data/products"
-import { nanoid } from "nanoid"
+import { use, useMemo } from "react"
+import { type Product } from "../../data/products"
+import CartContext from "../../context/cartContext";
 
 function Exo2() {
 
-    const [articles, setArticles] = useState(products.map(p =>({
-        ...p,
-        key: nanoid()
-    })))
+    const { cart, setCart } = use(CartContext)
 
     function increase(p: Product&{key:string}, quantity: number) {
         if(p.quantite === 0 && quantity < 0) return;
-        setArticles(as => as.map(
+        setCart(as => as.map(
             a => a === p ? {...a, quantite: p.quantite + quantity} : a)
         )
     }
 
-    const rows = articles.map(p => <tr key={p.key}>
+    const rows = cart.map(p => <tr key={p.key}>
         <td>{p.nom}</td>
         <td>{p.description}</td>
         <td>{p.prix}</td>
@@ -28,11 +25,11 @@ function Exo2() {
     </tr>)
 
     const nbArticles = useMemo(
-        () => articles.reduce((prev, c) => prev + c.quantite, 0),
-        [articles]
+        () => cart.reduce((prev, c) => prev + c.quantite, 0),
+        [cart]
     )
     const total = useMemo(() => {
-        return articles.reduce(
+        return cart.reduce(
             (prev, current) => prev + current.quantite * current.prix, 0
         ) * (nbArticles >= 10 ? 0.95 : 1)
         // let sum = 0
@@ -40,7 +37,7 @@ function Exo2() {
         //     sum += curr.prix * curr.quantite
         // }
         // return sum
-    }, /* on ne recalcule que qunad les articles sont modifiés */ [articles])
+    }, /* on ne recalcule que qunad les articles sont modifiés */ [cart])
     // dans owl3 c'est l'equivalent de computed
 
     return <>
